@@ -69,8 +69,8 @@ function Lightbox({
     ref.current?.focus();
     const key = e => {
       if (e.key === 'Escape') onClose();
-      if (e.key === 'ArrowRight') setIndex(i => (i - 1 + images.length) % images.length);
-      if (e.key === 'ArrowLeft') setIndex(i => (i + 1) % images.length);
+      if (e.key === 'ArrowRight') setIndex(i => (i + (language === 'he' ? -1 : 1) + images.length) % images.length);
+      if (e.key === 'ArrowLeft') setIndex(i => (i + (language === 'he' ? 1 : -1) + images.length) % images.length);
     };
     document.addEventListener('keydown', key);
     return () => {
@@ -78,8 +78,8 @@ function Lightbox({
       document.body.style.overflow = old;
       prev?.focus?.();
     };
-  }, [images, onClose]);
-  return <div className="lightbox" role="dialog" aria-modal="true" aria-label={t("\u05EA\u05E6\u05D5\u05D2\u05D4 \u05DE\u05D5\u05D2\u05D3\u05DC\u05EA")} ref={ref} tabIndex="-1"><button className="lightbox-close" aria-label={t("\u05E1\u05D2\u05D9\u05E8\u05D4")} onClick={onClose}><X size={25} /></button><div className="lightbox-stage"><button aria-label={t("\u05EA\u05DE\u05D5\u05E0\u05D4 \u05E7\u05D5\u05D3\u05DE\u05EA")} onClick={() => setIndex(i => (i - 1 + images.length) % images.length)}><ChevronRight /></button><img src={images[index].src} alt={images[index].alt} /><button aria-label={t("\u05EA\u05DE\u05D5\u05E0\u05D4 \u05D4\u05D1\u05D0\u05D4")} onClick={() => setIndex(i => (i + 1) % images.length)}><ChevronLeft /></button></div><div className="lightbox-foot"><span>{index + 1}{t("/")}{images.length}</span><span>{images[index].alt}</span></div></div>;
+  }, [images, onClose, language]);
+  return <div className="lightbox" role="dialog" aria-modal="true" aria-label={t("\u05EA\u05E6\u05D5\u05D2\u05D4 \u05DE\u05D5\u05D2\u05D3\u05DC\u05EA")} ref={ref} tabIndex="-1"><button className="lightbox-close" aria-label={t("\u05E1\u05D2\u05D9\u05E8\u05D4")} onClick={onClose}><X size={25} /></button><div className="lightbox-stage" dir={language === 'he' ? 'rtl' : 'ltr'}><button aria-label={t("\u05EA\u05DE\u05D5\u05E0\u05D4 \u05E7\u05D5\u05D3\u05DE\u05EA")} onClick={() => setIndex(i => (i - 1 + images.length) % images.length)}>{language === 'he' ? <ChevronRight /> : <ChevronLeft />}</button><img src={images[index].src} alt={images[index].alt} /><button aria-label={t("\u05EA\u05DE\u05D5\u05E0\u05D4 \u05D4\u05D1\u05D0\u05D4")} onClick={() => setIndex(i => (i + 1) % images.length)}>{language === 'he' ? <ChevronLeft /> : <ChevronRight />}</button></div><div className="lightbox-foot"><span>{index + 1}{t("/")}{images.length}</span><span>{images[index].alt}</span></div></div>;
 }
 function WorkModal({
   onClose,
