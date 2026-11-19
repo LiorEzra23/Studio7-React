@@ -14,7 +14,7 @@ export const site = {
     instagram: 'https://www.instagram.com/lish_dav/',
     instagramHandle: '@lish_dav',
     // כדי שטופס יישלח אוטומטית יש לחבר ספק טפסים. בהיעדרו נפתח אימייל עם הפרטים.
-    formspreeId: ''
+    formspreeId: 'mnpdzrrn'
   }
 };
 
