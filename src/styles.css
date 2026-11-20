@@ -10,3 +10,17 @@ html[dir=ltr] .hero-text{padding-left:0;padding-right:6%}html[dir=ltr] .hero-tag
 @media(max-width:390px){.site-header-inner{gap:6px}.language-switch{padding:6px 8px;gap:3px;font-size:11px}.nav-contact{padding:9px 8px;font-size:11px;gap:5px}}
 
 .service-icon{color:#867669;margin-top:4px;flex-shrink:0}
+
+.contact-direct>a.insta{display:inline-flex;align-items:center;gap:9px;direction:ltr;line-height:1.3}.contact-direct>a.insta svg{flex-shrink:0;display:block}
+
+.hero h1.hero-tagline{font:italic 400 clamp(28px,3.1vw,43px)/1.14 var(--serif);letter-spacing:normal;color:#8c7965;margin:35px 0 28px}html[dir=ltr] .hero h1.hero-tagline{font-size:clamp(28px,3.1vw,43px)}
+@media(max-width:760px){.hero h1.hero-tagline,html[dir=ltr] .hero h1.hero-tagline{font-size:31px;margin:21px 0 18px}}
+
+
+/* Preserve the original header order and slightly enlarge the studio mark. */
+.site-header-inner{direction:inherit}
+.site-header .logo-link{height:80px;width:68px}
+.site-header .logo-link img{height:78px;width:auto;object-fit:contain}
+html[dir=rtl] .site-header .nav-contact{direction:rtl}
+html[dir=ltr] .site-header .nav-contact{direction:ltr}
+@media(max-width:760px){.site-header .logo-link{height:65px;width:55px}.site-header .logo-link img{height:63px}.site-header .language-switch{margin-inline-start:auto}.site-header .menu{direction:rtl}html[dir=ltr] .site-header .menu{direction:ltr}}
